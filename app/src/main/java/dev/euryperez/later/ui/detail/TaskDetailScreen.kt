@@ -143,7 +143,7 @@ fun TaskDetailScreen(
             if (state.postponements.isEmpty()) {
                 item {
                     Text(
-                        "No postponements recorded on this device yet.",
+                        "No postponements yet. Suspicious.",
                         color = Fog,
                         modifier = Modifier.padding(horizontal = 20.dp),
                     )

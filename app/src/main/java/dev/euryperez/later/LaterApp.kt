@@ -5,6 +5,7 @@ import dev.euryperez.later.data.LaterDatabase
 import dev.euryperez.later.data.SampleTasks
 import dev.euryperez.later.data.TaskRepository
 import dev.euryperez.later.data.remote.RemoteTaskSource
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
 class LaterApp : Application() {
@@ -19,8 +20,10 @@ class LaterApp : Application() {
 
         runBlocking {
             if (repository.isEmpty()) {
-                repository.insertAll(SampleTasks.generate(count = 2_000))
+                repository.insertSampleData(SampleTasks.generate(count = 5_000))
             }
+            // Warm up the task list so the first screen is never empty.
+            repository.tasks.first()
         }
     }
 }

@@ -13,6 +13,8 @@ abstract class LaterDatabase : RoomDatabase() {
 
     companion object {
         fun create(context: Context): LaterDatabase =
-            Room.databaseBuilder(context, LaterDatabase::class.java, "later.db").build()
+            Room.databaseBuilder(context, LaterDatabase::class.java, "later.db")
+                .allowMainThreadQueries()
+                .build()
     }
 }

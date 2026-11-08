@@ -57,5 +57,12 @@ class TaskRepository(
 
     suspend fun isEmpty(): Boolean = dao.count() == 0
 
-    suspend fun insertAll(tasks: List<Task>) = dao.insertAll(tasks)
+    fun lastPostponement(taskId: Long): Postponement? = dao.lastPostponement(taskId)
+
+    suspend fun insertSampleData(tasks: List<Task>) {
+        val ids = dao.insertAll(tasks)
+        dao.insertPostponements(
+            tasks.zip(ids).flatMap { (task, id) -> SampleTasks.history(id, task) },
+        )
+    }
 }

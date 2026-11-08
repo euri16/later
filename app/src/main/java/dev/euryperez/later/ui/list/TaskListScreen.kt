@@ -60,6 +60,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -68,6 +69,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.euryperez.later.LaterApp
 import dev.euryperez.later.R
 import dev.euryperez.later.data.Category
 import dev.euryperez.later.data.Task
@@ -304,6 +306,8 @@ private fun SwipeToCompleteRow(
 
 @Composable
 private fun TaskRow(row: TaskRowModel, onClick: () -> Unit, onPostpone: () -> Unit) {
+    val repository = (LocalContext.current.applicationContext as LaterApp).repository
+    val lastPostponed = repository.lastPostponement(row.id)?.timestamp?.let { relativeTime(it) }
     val titleSize = with(LocalDensity.current) { 16.dp.toSp() }
     val bodySize = with(LocalDensity.current) { 13.dp.toSp() }
 
@@ -350,6 +354,10 @@ private fun TaskRow(row: TaskRowModel, onClick: () -> Unit, onPostpone: () -> Un
                         fontSize = bodySize,
                         color = if (row.isOverdue) Overdue else MaterialTheme.colorScheme.onSurface,
                     )
+                    if (lastPostponed != null) {
+                        Spacer(Modifier.width(6.dp))
+                        Text(text = "· $lastPostponed", fontSize = bodySize, color = Fog)
+                    }
                     row.tags.drop(1).forEach { tag ->
                         Spacer(Modifier.width(6.dp))
                         Text(
@@ -373,6 +381,15 @@ private fun TaskRow(row: TaskRowModel, onClick: () -> Unit, onPostpone: () -> Un
                     .clickable(onClick = onPostpone),
             )
         }
+    }
+}
+
+private fun relativeTime(timestamp: Long): String {
+    val days = ((System.currentTimeMillis() - timestamp) / 86_400_000L).toInt()
+    return when (days) {
+        0 -> "today"
+        1 -> "yesterday"
+        else -> "$days days ago"
     }
 }
 

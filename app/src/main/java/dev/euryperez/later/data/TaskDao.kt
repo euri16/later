@@ -24,7 +24,13 @@ interface TaskDao {
     suspend fun insert(task: Task): Long
 
     @Insert
-    suspend fun insertAll(tasks: List<Task>)
+    suspend fun insertAll(tasks: List<Task>): List<Long>
+
+    @Insert
+    suspend fun insertPostponements(postponements: List<Postponement>)
+
+    @Query("SELECT * FROM postponements WHERE taskId = :taskId ORDER BY timestamp DESC LIMIT 1")
+    fun lastPostponement(taskId: Long): Postponement?
 
     @Update
     suspend fun update(task: Task)

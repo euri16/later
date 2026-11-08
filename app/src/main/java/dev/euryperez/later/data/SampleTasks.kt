@@ -41,6 +41,19 @@ object SampleTasks {
         "Needs coffee first.",
     )
 
+    fun history(taskId: Long, task: Task): List<Postponement> {
+        val now = System.currentTimeMillis()
+        return List(task.postponeCount) { step ->
+            val to = task.dueDate.minusDays(step.toLong())
+            Postponement(
+                taskId = taskId,
+                fromDate = to.minusDays(1),
+                toDate = to,
+                timestamp = now - (step + 1) * 86_400_000L,
+            )
+        }
+    }
+
     fun generate(count: Int, random: Random = Random(seed = 42)): List<Task> {
         val today = LocalDate.now()
         return List(count) { index ->

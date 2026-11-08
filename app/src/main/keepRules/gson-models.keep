@@ -1,0 +1,4 @@
+# Gson maps JSON keys (assets/remote_tasks.json) to these classes' field names
+# by reflection, so the fields must keep their names and not be removed.
+-keep class dev.euryperez.later.data.remote.RemoteTaskResponse { <fields>; }
+-keep class dev.euryperez.later.data.remote.RemoteTask { <fields>; }

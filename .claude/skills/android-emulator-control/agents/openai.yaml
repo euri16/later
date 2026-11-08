@@ -1,0 +1,5 @@
+interface:
+  display_name: "Android Emulator Control"
+  short_description: "Drive and inspect Android runtime behavior"
+  default_prompt: "Use $android-emulator-control to verify this behavior on an Android emulator or device."
+

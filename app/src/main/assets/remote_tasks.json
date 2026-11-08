@@ -1,0 +1,124 @@
+{
+  "tasks": [
+    {
+      "title": "Reply to the client about the invoice",
+      "notes": "They asked twice.",
+      "category": "WORK",
+      "dueInDays": 5
+    },
+    {
+      "title": "Migrate the old build scripts",
+      "notes": "",
+      "category": "WORK",
+      "dueInDays": -1
+    },
+    {
+      "title": "Write the postmortem",
+      "notes": "Blameless, but honest.",
+      "category": "WORK",
+      "dueInDays": 7
+    },
+    {
+      "title": "Clean the gutters",
+      "notes": "Before the rain season.",
+      "category": "HOME",
+      "dueInDays": -4
+    },
+    {
+      "title": "Assemble the bookshelf",
+      "notes": "The screws are somewhere.",
+      "category": "HOME",
+      "dueInDays": -3
+    },
+    {
+      "title": "Fix the squeaky door",
+      "notes": "",
+      "category": "HOME",
+      "dueInDays": 12
+    },
+    {
+      "title": "Book the physiotherapy session",
+      "notes": "The knee says hi.",
+      "category": "HEALTH",
+      "dueInDays": -2
+    },
+    {
+      "title": "Buy running shoes",
+      "notes": "",
+      "category": "HEALTH",
+      "dueInDays": 6
+    },
+    {
+      "title": "Try the 7-minute workout",
+      "notes": "It is literally seven minutes.",
+      "category": "HEALTH",
+      "dueInDays": 13
+    },
+    {
+      "title": "Update the emergency contacts",
+      "notes": "",
+      "category": "ADMIN",
+      "dueInDays": -4
+    },
+    {
+      "title": "Download the bank statements",
+      "notes": "For the accountant.",
+      "category": "ADMIN",
+      "dueInDays": 11
+    },
+    {
+      "title": "Renew the domain name",
+      "notes": "Expires soon. Probably.",
+      "category": "ADMIN",
+      "dueInDays": 1
+    },
+    {
+      "title": "Return the library books",
+      "notes": "The fine keeps growing.",
+      "category": "ADMIN",
+      "dueInDays": -4
+    },
+    {
+      "title": "Plan the birthday dinner",
+      "notes": "",
+      "category": "FUN",
+      "dueInDays": -3
+    },
+    {
+      "title": "Learn to make mangú properly",
+      "notes": "Ask grandma.",
+      "category": "FUN",
+      "dueInDays": 8
+    },
+    {
+      "title": "Edit the vacation photos",
+      "notes": "Only 2,341 left.",
+      "category": "FUN",
+      "dueInDays": 8
+    },
+    {
+      "title": "Finish the online course",
+      "notes": "Module 3 of 12.",
+      "category": "FUN",
+      "dueInDays": -3
+    },
+    {
+      "title": "Organize the cables drawer",
+      "notes": "",
+      "category": "HOME",
+      "dueInDays": 2
+    },
+    {
+      "title": "Prepare the conference talk",
+      "notes": "",
+      "category": "WORK",
+      "dueInDays": -3
+    },
+    {
+      "title": "Schedule the car maintenance",
+      "notes": "The light is on again.",
+      "category": "ADMIN",
+      "dueInDays": 12
+    }
+  ]
+}

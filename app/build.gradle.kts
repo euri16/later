@@ -23,7 +23,6 @@ android {
             optimization {
                 enable = true // R8 code + resource optimization, includes proguard-android-optimize defaults.
             }
-            proguardFiles("proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
         }
     }
